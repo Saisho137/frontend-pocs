@@ -1,0 +1,13 @@
+<section style="text-align:center">
+  <h1>Auth con NgRx</h1>
+
+  <div *ngIf="user$ | async as user; else loggedOut">
+    <p>Usuario autenticado: {{ user.name }} ({{ user.email }})</p>
+    <button (click)="logout()">Cerrar sesión</button>
+  </div>
+
+  <ng-template #loggedOut>
+    <p>No hay ningún usuario autenticado.</p>
+    <button (click)="login()">Iniciar sesión</button>
+  </ng-template>
+</section>

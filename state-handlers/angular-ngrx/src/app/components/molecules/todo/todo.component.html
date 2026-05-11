@@ -1,0 +1,31 @@
+<section style="display: flex;flex-direction: column; align-items: center;gap: 0.5rem;">
+  <form (submit)="addTodo()"
+    style="display: flex;flex-direction: column;text-align:center; align-items: center;gap: 0.5rem;">
+    <label for="newTodo"> Nueva tarea: <input name="newTodo" [(ngModel)]="newTodo"
+        placeholder="Agregar nuevo To-do" /></label>
+    <button type="submit">Agregar tarea</button>
+  </form>
+
+  <h2>Lista de tareas</h2>
+  <div *ngIf="(todos$ | async)?.length"
+    style="display: flex;flex-direction: column;text-align:center; align-items: center">
+    <label for="filter">Mostrar:
+      <select id="filter" [(ngModel)]="filter" (change)="changeFilter(filter)">
+        <option value="all">Todos los TODOs</option>
+        <option value="pending">TODOs Pendientes</option>
+        <option value="completed">TODOs Completados</option>
+      </select>
+    </label>
+
+    <ul>
+      <li *ngFor="let todo of todos$ | async">
+        <span [style.textDecoration]="todo.completed ? 'line-through' : 'none'">
+          {{ todo.task }}
+        </span>
+        <button (click)="toggleTodo(todo.id)">Toggle</button>
+        <button (click)="removeTodo(todo.id)">Eliminar</button>
+      </li>
+    </ul>
+  </div>
+
+</section>

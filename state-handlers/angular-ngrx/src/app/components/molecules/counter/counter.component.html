@@ -1,0 +1,21 @@
+<section style="text-align:center">
+  <h2>Contador de items</h2>
+  <h2>{{ count$ | async }}</h2>
+
+  <h2>Valor de la cuenta</h2>
+  <p>(5$ por item)</p>
+  <h2>{{ duplicatedCount$ | async | currency }}</h2>
+
+  <button (click)="toggleModal()">Editar Contador</button>
+
+  <div *ngIf="modifyCounterModal"
+    style="display: flex; flex-direction: column;align-items: center; margin-top: 1rem; gap: 0.5rem;">
+    <label for="actionsAmount">Cantidad a incrementar o reducir: <input type="number" min="0" name="actionsAmount"
+        [(ngModel)]="actionsValue"></label>
+    <button (click)="increment()">Incrementar</button>
+    <button (click)="incrementByAmount()">Incrementar por cantidad</button>
+    <button (click)="decrement()">Decrementar</button>
+    <button (click)="decrementByAmount()">Decrementar por cantidad</button>
+    <button (click)="reset()">Resetear</button>
+  </div>
+</section>
