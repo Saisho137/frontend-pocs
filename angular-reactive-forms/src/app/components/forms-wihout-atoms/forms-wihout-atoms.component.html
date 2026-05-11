@@ -1,0 +1,97 @@
+<section class="container">
+    <header class="header">
+      <div class="header__logo">
+        <img class="header__logo-img" alt="logo" src="../favicon.ico" />
+      </div>
+      <nav class="header__nav">
+        <ol class="header__nav-list">
+          <li><a href="reactive-forms-vanilla">Reactive Forms Defaults</a></li>
+          <li><a href="reactive-forms-atomic-design">Reactive Forms with Atoms</a></li>
+        </ol>
+      </nav>
+    </header>
+  
+    <section class="content">
+      <h2>General Form</h2>
+      <section class="general-info" [formGroup]="generalInfoForm">
+        <label class="general-info__label">Name:</label>
+        <input type="text" formControlName="name">
+        <label class="general-info__label">Last Name:</label>
+        <input type="text" formControlName="lastName">
+        <label class="general-info__label">DNI:</label>
+        <input type="text" formControlName="dni">
+        <label class="general-info__label">Age:</label>
+        <input type="text" formControlName="age">
+      </section>
+  
+      <h3>Dinamic Form</h3>
+      <table class="table">
+        <caption></caption>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Currency</th>
+            <th>Amount</th>
+            <th>Purchase Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let form of formList; let index = index" [formGroup]="form">
+          <tr>
+            <td><input type="text" formControlName="product"></td>
+            <td><input type="text" formControlName="price"></td>
+            <td><input type="text" formControlName="currency"></td>
+            <td><input type="text" formControlName="amount"></td>
+            <td><input type="text" formControlName="purchaseDate"></td>
+            <td><button (click)="addRowForm()">+</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="button__generate" (click)="submit()">Generate info</button>
+  
+      <h2>General Form Values</h2>
+      <section class="print__generalForm" *ngIf="generalInfoForm">
+        <div *ngIf="generalInfoForm.get('name')?.value">
+          <h3>Name:</h3>
+          <p>{{generalInfoForm.get('name')?.value}}</p>
+        </div>
+        <div *ngIf="generalInfoForm.get('lastName')?.value">
+          <h3>Last Name:</h3>
+          <p>{{generalInfoForm.get('lastName')?.value}}</p>
+        </div>
+        <div *ngIf="generalInfoForm.get('dni')?.value">
+          <h3>DNI:</h3>
+          <p>{{generalInfoForm.get('dni')?.value}}</p>
+        </div>
+        <div *ngIf="generalInfoForm.get('age')?.value">
+          <h3>Age:</h3>
+          <p>{{generalInfoForm.get('age')?.value}}</p>
+        </div>
+      </section>
+  
+      <h2>Dinamic Forms Values</h2>
+      <section class="print__dinamicForm" *ngFor="let form of formList; let i = index">
+        <div *ngIf="formList[i].get('product')?.value">
+          <h3>Product:</h3>
+          <p>{{formList[i].get('product')?.value}}</p>
+        </div>
+        <div *ngIf="formList[i].get('price')?.value">
+          <h3>Price:</h3>
+          <p>{{formList[i].get('price')?.value}}</p>
+        </div>
+        <div *ngIf="formList[i].get('currency')?.value">
+          <h3>Currency:</h3>
+          <p>{{formList[i].get('currency')?.value}}</p>
+        </div>
+        <div *ngIf="formList[i].get('amount')?.value">
+          <h3>Amount:</h3>
+          <p>{{formList[i].get('amount')?.value}}</p>
+        </div>
+        <div *ngIf="formList[i].get('purchaseDate')?.value">
+          <h3>Purchase Date:</h3>
+          <p>{{formList[i].get('purchaseDate')?.value}}</p>
+        </div>
+      </section>
+    </section>
+  </section>

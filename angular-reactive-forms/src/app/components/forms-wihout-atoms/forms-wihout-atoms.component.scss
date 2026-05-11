@@ -1,0 +1,108 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-width: max-content;
+    min-height: 97vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 30px;
+    &__logo {
+        display: flex;
+        align-items: center;
+        &-img {
+            display: grid;
+            justify-self: end;
+            align-items: center;
+            margin: 0 15px
+        }
+    }
+    &__nav {
+        &-list {
+            list-style: none;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.general-info {
+    display: grid;
+    grid-template-columns: 0.65fr 1fr 0.65fr 1fr;
+    align-items: center;
+    color: #461b93;
+    font-weight: bold;
+    margin-top: 10px;
+    padding-right: 2%;
+    height: 15vh;
+    border-radius: 20px;
+    background-color: #dfdfff;
+
+    &__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+.table {
+    background-color: #dfdfff;
+    color: #461b93;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.button__generate {
+    height: 2em;
+    font-weight: bold;
+    font-size: 18px;
+    color: #461b93;
+    background-color: #dfdfff;
+    border: #D999FF 1.5px solid;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 5px;
+    &:hover {
+        cursor: pointer;
+    }
+    &:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.print__generalForm {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.print__dinamicForm {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
