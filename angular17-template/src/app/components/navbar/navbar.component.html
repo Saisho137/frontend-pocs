@@ -1,0 +1,12 @@
+<h2>navbar works! ==> {{propertyChild}}</h2>
+@if (isInHome) {
+    <h3>You are in home page!</h3>
+} @else {
+    <h3>You are not in home page!</h3>
+}
+<ul>
+    @for (item of componentsNavbar; track item.id) {
+        <li (mouseover)="handleHover( item.name )">{{item.name}}</li>
+    }
+</ul>
+<button (click)="emitToParent()">Message to Parent</button>
