@@ -1,0 +1,29 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	min-width: fit-content;
+    min-height: fit-content;
+	width: 350px;
+    height: 450px;
+
+	border-radius: 50px;
+	border: solid 1px black;
+
+	margin: 20px;
+	padding: 25px;
+
+	background-color:rgb(70, 88, 38);
+    border: 1px solid gray;
+    color: white;
+}
+
+.product__image {
+	border-radius: 50px;
+    border: 1px solid white;
+    max-width: 300px;
+    max-height: 350px;
+}
