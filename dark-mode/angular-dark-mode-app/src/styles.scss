@@ -1,0 +1,44 @@
+$bg-color-light: white;
+$text-color-light: black;
+
+$bg-color-dark: black;
+$text-color-dark: white;
+
+$button-bg-color-light: rgb(245, 238, 220);
+$button-text-color-light: black;
+
+$button-bg-color-dark: #1a73e8;
+$button-text-color-dark: white;
+
+.dark-theme {
+  --main-bg-color: #{$bg-color-dark};
+  --main-text-color: #{$text-color-dark};
+  --button-bg-color: #{$button-bg-color-dark};
+  --button-text-color: #{$button-text-color-dark};
+  --shadow-color: red
+}
+
+.light-theme {
+  --main-bg-color: #{$bg-color-light};
+  --main-text-color: #{$text-color-light};
+  --button-bg-color: #{$button-bg-color-light};
+  --button-text-color: #{$button-text-color-light};
+  --shadow-color: blue
+}
+
+body {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  &:hover {
+    cursor: pointer;
+    box-shadow:  10px 5px 5px var(--shadow-color);
+  }
+}

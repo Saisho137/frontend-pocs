@@ -1,0 +1,25 @@
+$bg-color-light: white;
+$text-color-light: black;
+
+$bg-color-dark: black;
+$text-color-dark: white;
+
+$button-bg-color-light: rgb(245, 238, 220);
+$button-text-color-light: black;
+
+$button-bg-color-dark: #1a73e8;
+$button-text-color-dark: white;
+
+:root {
+    --bg-color-light: #{$bg-color-light};
+    --text-color-light: #{$text-color-light};
+
+    --bg-color-dark: #{$bg-color-dark};
+    --text-color-dark: #{$text-color-dark};
+
+    --button-bg-color-light: #{$button-bg-color-light};
+    --button-text-color-light: #{$button-text-color-light};
+
+    --button-bg-color-dark: #{$button-bg-color-dark};
+    --button-text-color-dark: #{$button-text-color-dark};
+}
