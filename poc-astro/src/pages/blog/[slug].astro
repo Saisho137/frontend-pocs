@@ -1,0 +1,24 @@
+---
+const { slug } = Astro.params;
+export const prerender = false;
+
+// Ejemplo: obtener contenido dinámico de un "mock API"
+const posts = {
+  hello: { title: "Hola Mundo", body: "Este es el primer post." },
+  astro: { title: "Astro SSR", body: "Este post se genera dinámicamente." },
+};
+
+const post = posts[slug as keyof typeof posts] || { title: "Post no encontrado", body: "" };
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{post.title}</title>
+  </head>
+  <body>
+    <h1>{post.title}</h1>
+    <p>{post.body}</p>
+  </body>
+</html>

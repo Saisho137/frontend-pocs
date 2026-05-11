@@ -1,0 +1,11 @@
+---
+const response = await fetch('https://dog.ceo/api/breeds/image/random');
+const data = await response.json();
+const imageUrl = data.message;
+console.log('Image URL:', data);
+---
+
+<figure>
+  <img src={imageUrl} alt="Perro aleatorio" style="max-width: 100%; height: auto;" />
+  <figcaption>Imagen aleatoria de un perro</figcaption>
+</figure>

@@ -1,0 +1,20 @@
+---
+export const prerender = true;
+const title = "Acerca de Nosotros";
+const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=4.71&longitude=-74.07&current_weather=true&timezone=America/Bogota');
+const data = await res.json();
+const currentWeather = data.current_weather?.temperature ?? 'N/A';
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{title}</h1>
+    <p>Esta página se generó estáticamente (SSG)</p>
+    <p>Clima actual en Bogotá: {currentWeather}°C</p>
+  </body>
+</html>

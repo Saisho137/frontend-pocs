@@ -1,0 +1,25 @@
+---
+import CounterReact from '../react/CounterReact';
+import Counter from './Counter.astro';
+import styles from './Hero.module.scss';
+---
+
+<section class={styles.hero}>
+  <div class={styles['hero-content']}>
+      <h1>Construye sitios rápidos con Astro</h1>
+      <p>El framework moderno para la web del futuro.</p>
+      <h3>Astro puro (inline script)</h3>
+      <Counter />
+  
+      <h3>React (client:load)</h3>
+      <CounterReact client:load/>
+      <h3>React (client:idle)</h3>
+      <CounterReact client:idle />
+      <h3>React (client:visible)</h3>
+      <CounterReact client:visible />
+      <h3>React (client:only="react")</h3>
+      <CounterReact client:only="react" />
+
+      <a href="#cta" class={styles.btn}>Empieza ahora</a>
+  </div>
+</section>

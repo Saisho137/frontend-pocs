@@ -1,0 +1,20 @@
+<div>
+  <p>Clicks: <span data-count>0</span></p>
+  <button data-btn>Incrementar</button>
+</div>
+
+<script is:inline>
+  const root = document.currentScript
+    ? document.currentScript.closest("div")
+    : null; // scope solo al componente
+  const btn = root?.querySelector("[data-btn]");
+  const span = root?.querySelector("[data-count]");
+  let count = 0;
+
+  btn?.addEventListener("click", () => {
+    count++;
+    if (span) {
+      span.textContent = String(count);
+    }
+  });
+</script>
