@@ -1,0 +1,32 @@
+.admin-panel {
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  text-align: center;
+
+  color: white;
+  min-height: 84vh;
+  background-color: darkolivegreen;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  &__search {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  td {
+    padding: 0.25rem 1rem;
+    width: fit-contents;
+    color: black;
+    background-color: whitesmoke;
+  }
+}

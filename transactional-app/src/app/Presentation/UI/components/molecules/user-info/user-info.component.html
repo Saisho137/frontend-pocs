@@ -1,0 +1,13 @@
+<section>
+  <div *ngIf="account; else loading">
+    <h2>Account Details</h2>
+    <p *ngIf="account">ID: {{ account.id }}</p>
+    <p *ngIf="account">Name: {{ account.name }}</p>
+    <p *ngIf="account">Balance: {{ account.balance }}</p>
+    <p *ngIf="account">Adress: {{ account.address || 'N/A' }}</p>
+  </div>
+
+  <ng-template #loading>
+    <p>No account found</p>
+  </ng-template>
+</section>

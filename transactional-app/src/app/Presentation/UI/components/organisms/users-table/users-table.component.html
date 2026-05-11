@@ -1,0 +1,51 @@
+<article class="admin-panel">
+  <h2>Lista de usuarios</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accountList$ | async">
+        <td>{{ account.id }}</td>
+        <td>{{ account.name }}</td>
+        <td>{{ account.balance | currency }}</td>
+        <td>{{ account.address || 'N/A' }}</td>
+        <td>
+          <button (click)="selectAccount(account)">Edit</button>
+          <button (click)="deleteAccount(account.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <section>
+    <h2>{{selectedAccount.id ? 'Edit Account' : 'Create Account'}}</h2>
+
+    <form class="admin-panel__form" (submit)="selectedAccount.id ? updateAccount(selectedAccount.id, selectedAccount) : createAccount(selectedAccount)">
+      <label *ngIf="selectedAccount.id" for="id">ID <input type="text" name="id" value="{{selectedAccount.id}}"
+          readonly /></label>
+      <label for="name">Name <input type="text" name="name" [(ngModel)]="selectedAccount.name" required /></label>
+      <label for="balance">Balance <input type="number" name="balance" [(ngModel)]="selectedAccount.balance"
+          required /></label>
+      <label for="address">Address <input type="text" name="address" [(ngModel)]="selectedAccount.address" /></label>
+
+      <button type="submit">{{ selectedAccount.id ? 'Done' : 'Create Account' }}</button>
+      <button *ngIf="!selectedAccount.id" type="button" (click)="clearSelection()">Clear</button>
+    </form>
+  </section>
+
+  <section class="admin-panel__search">
+    <form >
+      <label for="idSearch">Search: <input type="text" name="idSearch" [(ngModel)]="accountIdSearch" (input)="searchAccount()" /></label>
+    </form>
+    <app-user-info *ngIf="accountIdSearch" [account]="account$ | async"></app-user-info>
+  </section>
+
+</article>
