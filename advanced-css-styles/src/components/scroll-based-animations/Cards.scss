@@ -1,0 +1,38 @@
+.scene {
+    display: grid;
+    place-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: darkolivegreen;
+}
+
+.card-stack {
+    display: flex;
+    position: relative;
+    width: fit-content;
+    height: 400px;
+    background-color: yellowgreen;
+}
+
+.card {
+    z-index: calc(100 - var(--i));
+    margin-left: -200px;
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+    color: black;
+    background: white;
+    border-radius: 15px;
+    border: red 1px solid;
+    transform-origin: center;
+    transform: rotateX(5deg) rotateY(45deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, scale 0.3s ease;
+}
+
+.card:hover {
+    scale: 1.1;
+    cursor: pointer;
+    transform: rotateX(5deg) rotateY(45deg) translateY(0px) translateZ(150px); 
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}

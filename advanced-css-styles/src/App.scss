@@ -1,0 +1,42 @@
+#root {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+
+  will-change: filter;
+
+  transition: filter 300ms;
+
+  transform-origin: center;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 1)) 
+  drop-shadow(-3px -3px 3px rgba(0, 146, 69, 0.5));
+  transform: rotateY(30deg) rotateX(15deg);
+
+  animation: rotate3D 5s linear infinite;
+
+  &:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+}
+
+@keyframes rotate3D {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    animation: rotate3D infinite 20s linear;
+  }
+}
