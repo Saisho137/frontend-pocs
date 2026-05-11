@@ -1,0 +1,13 @@
+<header class="container">
+  <h1 routerLink="/">Host</h1>
+  <nav class="nav">
+    <span class="nav__clean-mf" routerLink="/clean">Clean Architecture</span>
+    <div class="cart" routerLink="/payment">
+      <span class="material-icons"> shopping_cart </span>
+      <span class="cart__count">
+        {{ commonsLibService.channelPayment$ | async }}
+      </span>
+    </div>
+  </nav>
+</header>
+<router-outlet></router-outlet>
